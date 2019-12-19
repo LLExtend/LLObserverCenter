@@ -2,7 +2,8 @@
 LLObserverCenter参考NSNotificationCenter实现方式，采用单例全局管理，单例持有观察者NSMapTable，NSMapTable集合中储存所有添加的block字典，在发送通知观察时从字典中取出对应的block调用。
 
 #### 1、单例持有NSMapTable集合
-这里采用`NSMapTable`来储存block，`NSMapTable`使用强引用key，弱引用value，这样做的好处在于，当其中储存的对象销毁后，会自动从`NSMapTable`移除。使用`NSMapTable`可以保证生命周期不受单例影响。具体参考--->>[Cocoa 集合类型：NSPointerArray，NSMapTable，NSHashTable](http://www.saitjr.com/ios/nspointerarray-nsmaptable-nshashtable.html)
+这里采用`NSMapTable`来储存block，`NSMapTable`强引用key，弱引用value，这样做的好处在于：当其中储存的对象销毁后，会自动从`NSMapTable`移除，使用`NSMapTable`可以保证生命周期不受单例影响。
+具体参考--->>[Cocoa 集合类型：NSPointerArray，NSMapTable，NSHashTable](http://www.saitjr.com/ios/nspointerarray-nsmaptable-nshashtable.html)
 #### 2、保证一个对象只添加一次观察者
 多次添加观察者会造成调用的时候响应多次，这里采用对象内存地址和标识符作为字典的key，保证一个对象只添加一次。
 #### 3、多线程安全
