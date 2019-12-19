@@ -1,5 +1,5 @@
 # 原理
-LLObserverCenter参考NSNotificationCenter实现方式，采用单例全局管理，单例持有观察者NSMapTable，NSMapTable集合中储存所有添加的block字典，在发送通知观察时从字典中取出对应的block调用。
+LLObserverCenter参考NSNotificationCenter实现方式，采用单例全局管理，单例持有观察者NSMapTable集合，NSMapTable集合中储存所有添加的block字典，在发送通知观察时从字典中取出对应的block调用。
 
 #### 1、单例持有NSMapTable集合
 这里采用`NSMapTable`来储存block，`NSMapTable`强引用key，弱引用value，这样做的好处在于：当其中储存的对象销毁后，会自动从`NSMapTable`移除，使用`NSMapTable`可以保证生命周期不受单例影响。
