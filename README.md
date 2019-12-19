@@ -52,5 +52,5 @@ LLObserverCenter参考NSNotificationCenter实现方式，采用单例全局管�
 ```
 发送通知消息
 ```
-    [LLObserverCenter];
+    [LLObserverCenter postIdentifier:@"testA" object:nil];
 ```
