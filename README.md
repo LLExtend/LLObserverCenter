@@ -46,11 +46,11 @@ LLObserverCenter参考NSNotificationCenter实现方式，采用单例全局管�
 #### 使用方式
 添加观察者
 ```
-    [LLObserverCenter addObserver:self identifier:@"testA" mainThread:YES block:^(id  _Nonnull observer, id  _Nonnull anObject) {
+[LLObserverCenter addObserver:self identifier:@"testA" mainThread:YES block:^(id  _Nonnull observer, id  _Nonnull anObject) {
         
-    }];
+}];
 ```
 发送通知消息
 ```
-    [LLObserverCenter postIdentifier:@"testA" object:nil];
+[LLObserverCenter postIdentifier:@"testA" object:nil];
 ```
