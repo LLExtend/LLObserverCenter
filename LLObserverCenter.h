@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LLObserverCenter : NSObject
 
-/// 根据标识添加观察（使用block ⚠️注意循环使用）
+/// 根据标识添加观察（使用block ⚠️注意循环引用）
 /// @param observer 观察者
 /// @param identifier 标识
 /// @param mainThread 是否主线程回调
